@@ -1,0 +1,18 @@
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+    <!-- 只需配置别名，其他的配置使用其他的方法进行配置 -->
+    <typeAliases>
+        <package name="com.cenhua.dataimport.pojo"/>
+        <!--     <typeAlias type="com.myoracle.pojo.Student" alias="Student"/>
+             <typeAlias type="com.myoracle.pojo.Learner" alias="Pojo"/>-->
+    </typeAliases>
+    <!-- 开启PageHelper插件-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+        </plugin>
+    </plugins>
+</configuration>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.cenhua.dataimport.mapper.FileMapper">
+
+    <select id="getFileList" resultType="com.cenhua.dataimport.pojo.Files">
+		select * from file
+	</select>
+    <insert id="setFileList">
+		insert into file(filename,filepath) values(#{filename},#{filepath});
+	</insert>
+</mapper>
+
+

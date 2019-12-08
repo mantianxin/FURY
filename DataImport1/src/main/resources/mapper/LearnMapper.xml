@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.cenhua.dataimport.mapper.LearnMapper">
+    <select id="insertObject" parameterType="com.cenhua.dataimport.pojo.Learner">
+          INSERT INTO learner(`sno`, `name`, `age`, `sex`, `address`, `bodyid`, `phone`, `mail`, `birth`)
+           VALUES (#{sno}, #{name}, #{age}, #{sex}, #{address}, #{bodyid} , #{phone}, #{mail}, #{birth})
+	</select>
+
+
+
+</mapper>
+
+

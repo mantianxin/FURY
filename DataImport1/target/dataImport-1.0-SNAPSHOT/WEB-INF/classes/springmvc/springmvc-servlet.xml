@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+
+    <!-- 自动扫描该包 @controller注解的类-->
+    <context:component-scan base-package="com.cenhua.dataimport.controller"/>
+    <!-- 静态资源处理 -->
+    <mvc:default-servlet-handler/>
+
+    <!--自动注册 RequestMappingHandlerMapping、RequestMappingHandlerAdapter 等bean -->
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+    <!--定义跳转的文件的前后缀 ，视图模式配置-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--第一版：
+                 功能实现：订单的增删查，由于字段名name命名的问题导致不能修改.
+                         用户的注册、查找，注册实现前端输入data的数据（实际前端传入后端为String类型）传到后端进行解析成Date类型得到数据
+                         页面都在pages文件下
+                         <property name="prefix" value="/WEB-INF/pages/" />
+         -->
+        <!--第二版：
+                 目标功能实现：实现在输入框输入信息时出现信息校验的信息，
+                            实现ajax发送请求
+                            实现json数据传输
+                            实现文件上传倒计时特效  未实现
+                            以及图片上传到数据库   未实现
+                            利用echarts进行数据展示 未实现
+                  最终目的：熟练掌握mybatis,spring,springmvc
+                  spring boot是第三版进行整合
+                  页面放在page文件夹
+        <property name="prefix" value="/WEB-INF/page/" />
+        <property name="suffix" value=".jsp" />
+        -->
+        <!--第三版how2j天猫网站-->
+        <!--<property name="prefix" value="/WEB-INF/pagetianmao/" />-->
+        <!--第四版模仿天猫网站-->
+        <!--<property name="prefix" value="/WEB-INF/pagetianmaotest/"/>-->
+        <property name="prefix" value="/WEB-INF/pages/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+    <!--上传文件设置图片大小-->
+    <bean id="multipartResolver"
+           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+         <!-- 设置上传文件最大尺寸，单位为B -->
+    <property name="maxUploadSize" value="42006529160" />
+    </bean>
+
+</beans>
